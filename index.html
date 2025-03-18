@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction de Flux de Trafic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-traffic-light"></i> Prédiction de Flux de Trafic</h1>
+            <p>Un projet d'analyse et de prédiction du trafic routier utilisant l'apprentissage automatique</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#dataset">Données</a></li>
+                <li><a href="#methodology">Méthodologie</a></li>
+                <li><a href="#results">Résultats</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <div class="card">
+                <p>Ce projet vise à analyser et prédire les flux de trafic routier en utilisant des techniques d'apprentissage automatique. La congestion du trafic est un problème majeur dans les zones urbaines, entraînant une perte de temps, une augmentation de la consommation de carburant et des émissions de gaz à effet de serre.</p>
+                <p>En développant un modèle capable de prédire les conditions de trafic, nous pouvons aider à optimiser les itinéraires, planifier les déplacements et améliorer l'efficacité globale des systèmes de transport.</p>
+                <div class="image-container">
+                    <img src="traffic-banner.svg" alt="Trafic routier" class="responsive-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="dataset">
+            <h2>Jeu de Données</h2>
+            <div class="card">
+                <p>Notre analyse s'appuie sur un ensemble de données comprenant plusieurs variables qui influencent les conditions de trafic :</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>holiday</td>
+                                <td>Indique si le jour est férié</td>
+                            </tr>
+                            <tr>
+                                <td>temp</td>
+                                <td>Température normalisée</td>
+                            </tr>
+                            <tr>
+                                <td>rain_1h</td>
+                                <td>Quantité de pluie (dernière heure)</td>
+                            </tr>
+                            <tr>
+                                <td>snow_1h</td>
+                                <td>Quantité de neige (dernière heure)</td>
+                            </tr>
+                            <tr>
+                                <td>clouds_all</td>
+                                <td>Couverture nuageuse</td>
+                            </tr>
+                            <tr>
+                                <td>weather_main</td>
+                                <td>Condition météorologique principale</td>
+                            </tr>
+                            <tr>
+                                <td>Rush Hour</td>
+                                <td>Indique si c'est une heure de pointe</td>
+                            </tr>
+                            <tr>
+                                <td>traffic_volume</td>
+                                <td>Volume de trafic normalisé</td>
+                            </tr>
+                            <tr>
+                                <td>class</td>
+                                <td>Classification du trafic (Rouge, Jaune, Vert)</td>
+                            </tr>
+                            <tr>
+                                <td>accidents</td>
+                                <td>Nombre d'accidents</td>
+                            </tr>
+                            <tr>
+                                <td>economic_activity</td>
+                                <td>Type d'activité économique (Marché, Concert, etc.)</td>
+                            </tr>
+                            <tr>
+                                <td>incidents</td>
+                                <td>Nombre d'incidents signalés</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trafficClassChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology">
+            <h2>Méthodologie</h2>
+            <div class="card">
+                <p>Notre approche pour prédire le flux de trafic comprend les étapes suivantes :</p>
+                <div class="methodology-steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-database"></i></div>
+                        <div class="step-content">
+                            <h3>1. Préparation des données</h3>
+                            <p>Nettoyage des données, traitement des valeurs manquantes et normalisation des variables numériques.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="step-content">
+                            <h3>2. Analyse exploratoire</h3>
+                            <p>Visualisation des relations entre les variables et identification des tendances.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="step-content">
+                            <h3>3. Sélection de modèle</h3>
+                            <p>Évaluation de différents algorithmes d'apprentissage automatique pour trouver le plus performant.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-brain"></i></div>
+                        <div class="step-content">
+                            <h3>4. Entraînement du modèle</h3>
+                            <p>Entraînement du modèle sélectionné sur les données historiques.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="step-content">
+                            <h3>5. Évaluation</h3>
+                            <p>Mesure de la performance du modèle à l'aide de métriques appropriées.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-snippet">
+                    <pre><code>
+# Extrait du code Python utilisé pour l'analyse
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Chargement des données
+combined_data = pd.read_csv('dataset.csv')
+
+# Affichage des premières lignes pour vérifier les données
+print(combined_data.head())
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="results">
+            <h2>Résultats</h2>
+            <div class="card">
+                <p>Notre analyse a révélé plusieurs facteurs clés qui influencent le flux de trafic :</p>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h3>Impact de la météo</h3>
+                        <p>Les conditions météorologiques, en particulier la pluie et la neige, ont un impact significatif sur le volume de trafic.</p>
+                        <div class="chart-container">
+                            <canvas id="weatherImpactChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <h3>Heures de pointe</h3>
+                        <p>Les périodes d'heures de pointe montrent une augmentation significative du volume de trafic, avec une classification "Rouge" plus fréquente.</p>
+                        <div class="chart-container">
+                            <canvas id="rushHourChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <h3>Activités économiques</h3>
+                        <p>Les événements comme les concerts et les marchés sont associés à des volumes de trafic plus élevés dans les zones environnantes.</p>
+                        <div class="chart-container">
+                            <canvas id="economicActivityChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <h3>Performance du modèle</h3>
+                        <p>Notre modèle de prédiction a atteint une précision de classification élevée pour les différentes catégories de trafic.</p>
+                        <div class="chart-container">
+                            <canvas id="modelPerformanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <div class="card">
+                <p>Ce projet démontre l'efficacité des techniques d'apprentissage automatique pour prédire les conditions de trafic routier. Les résultats obtenus peuvent être utilisés pour :</p>
+                <ul class="conclusion-list">
+                    <li><i class="fas fa-route"></i> Optimiser les itinéraires en temps réel</li>
+                    <li><i class="fas fa-clock"></i> Planifier les déplacements aux heures les moins congestionnées</li>
+                    <li><i class="fas fa-city"></i> Améliorer la planification urbaine et la gestion du trafic</li>
+                    <li><i class="fas fa-gas-pump"></i> Réduire la consommation de carburant et les émissions</li>
+                </ul>
+                <p>Les travaux futurs pourraient inclure l'intégration de données en temps réel et l'expansion du modèle à d'autres zones géographiques.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Projet de Prédiction de Flux de Trafic | Développé par MERYEM EL OSMANI</p>
+            <div class="social-links">
+                <a href="https://github.com/MERYEMELOSMANI/Mini_project-TrafficFlowPrediction-" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
