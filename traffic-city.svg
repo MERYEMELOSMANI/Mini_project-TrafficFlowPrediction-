@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#2c3e50" />
+    </linearGradient>
+    
+    <linearGradient id="roadGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34495e" />
+      <stop offset="100%" stop-color="#2c3e50" />
+    </linearGradient>
+    
+    <linearGradient id="buildingGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#2980b9" />
+    </linearGradient>
+    
+    <linearGradient id="buildingGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2c3e50" />
+      <stop offset="100%" stop-color="#1a252f" />
+    </linearGradient>
+    
+    <linearGradient id="buildingGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e74c3c" />
+      <stop offset="100%" stop-color="#c0392b" />
+    </linearGradient>
+    
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Car definition -->
+    <g id="car">
+      <rect x="0" y="0" width="40" height="20" rx="5" fill="#3498db" />
+      <rect x="5" y="5" width="15" height="10" rx="2" fill="#ecf0f1" />
+      <rect x="25" y="5" width="10" height="10" rx="2" fill="#ecf0f1" />
+      <circle cx="10" cy="20" r="5" fill="#2c3e50" />
+      <circle cx="30" cy="20" r="5" fill="#2c3e50" />
+    </g>
+    
+    <!-- Traffic light definition -->
+    <g id="trafficLight">
+      <rect x="0" y="0" width="20" height="60" rx="5" fill="#2c3e50" />
+      <circle cx="10" cy="10" r="7" fill="#e74c3c" class="light red" />
+      <circle cx="10" cy="30" r="7" fill="#f39c12" class="light yellow" />
+      <circle cx="10" cy="50" r="7" fill="#2ecc71" class="light green" />
+    </g>
+    
+    <!-- Building definition -->
+    <g id="building1">
+      <rect x="0" y="0" width="80" height="200" fill="url(#buildingGradient1)" />
+      <g class="windows">
+        <rect x="10" y="20" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="20" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="60" y="20" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="50" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="50" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="60" y="50" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="80" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="80" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="60" y="80" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="110" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="110" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="60" y="110" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="140" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="140" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="60" y="140" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="170" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="170" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+        <rect x="60" y="170" width="15" height="20" fill="#ecf0f1" opacity="0.8" />
+      </g>
+    </g>
+    
+    <g id="building2">
+      <rect x="0" y="0" width="100" height="250" fill="url(#buildingGradient2)" />
+      <g class="windows">
+        <rect x="10" y="20" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="40" y="20" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="70" y="20" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="55" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="40" y="55" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="70" y="55" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="90" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="40" y="90" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="70" y="90" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="125" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="40" y="125" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="70" y="125" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="160" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="40" y="160" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="70" y="160" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="195" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="40" y="195" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+        <rect x="70" y="195" width="20" height="25" fill="#ecf0f1" opacity="0.8" />
+      </g>
+    </g>
+    
+    <g id="building3">
+      <rect x="0" y="0" width="70" height="180" fill="url(#buildingGradient3)" />
+      <g class="windows">
+        <rect x="10" y="15" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="15" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="40" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="40" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="65" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="65" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="90" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="90" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="115" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="115" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        
+        <rect x="10" y="140" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+        <rect x="35" y="140" width="15" height="15" fill="#ecf0f1" opacity="0.8" />
+      </g>
+    </g>
+    
+    <!-- Data flow animation -->
+    <g id="dataFlow">
+      <circle cx="0" cy="0" r="3" fill="#3498db" opacity="0.8" />
+      <circle cx="0" cy="0" r="2" fill="#e74c3c" opacity="0.8" />
+      <circle cx="0" cy="0" r="4" fill="#2ecc71" opacity="0.8" />
+      <circle cx="0" cy="0" r="2.5" fill="#f39c12" opacity="0.8" />
+      <circle cx="0" cy="0" r="3.5" fill="#9b59b6" opacity="0.8" />
+    </g>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#skyGradient)" />
+  
+  <!-- City skyline -->
+  <use xlink:href="#building2" x="50" y="150" />
+  <use xlink:href="#building1" x="160" y="200" />
+  <use xlink:href="#building3" x="250" y="220" />
+  <use xlink:href="#building2" x="330" y="170" />
+  <use xlink:href="#building1" x="440" y="220" />
+  <use xlink:href="#building3" x="530" y="200" />
+  <use xlink:href="#building2" x="610" y="180" />
+  <use xlink:href="#building1" x="720" y="230" />
+  
+  <!-- Road -->
+  <rect x="0" y="400" width="800" height="200" fill="url(#roadGradient)" />
+  
+  <!-- Road markings -->
+  <g id="roadMarkings">
+    <rect x="50" y="499" width="60" height="10" fill="white" />
+    <rect x="150" y="499" width="60" height="10" fill="white" />
+    <rect x="250" y="499" width="60" height="10" fill="white" />
+    <rect x="350" y="499" width="60" height="10" fill="white" />
+    <rect x="450" y="499" width="60" height="10" fill="white" />
+    <rect x="550" y="499" width="60" height="10" fill="white" />
+    <rect x="650" y="499" width="60" height="10" fill="white" />
+    <rect x="750" y="499" width="60" height="10" fill="white" />
+  </g>
+  
+  <!-- Traffic lights -->
+  <use xlink:href="#trafficLight" x="200" y="340" />
+  <use xlink:href="#trafficLight" x="580" y="340" />
+  
+  <!-- Cars -->
+  <g id="cars">
+    <use xlink:href="#car" x="100" y="480" class="car car1" />
+    <use xlink:href="#car" x="200" y="480" class="car car2" />
+    <use xlink:href="#car" x="350" y="480" class="car car3" />
+    <use xlink:href="#car" x="500" y="480" class="car car4" />
+    <use xlink:href="#car" x="650" y="480" class="car car5" />
+  </g>
+  
+  <!-- Data visualization elements -->
+  <g id="dataViz" opacity="0.7" filter="url(#glow)">
+    <path d="M100,350 Q400,100 700,350" stroke="#3498db" stroke-width="2" fill="none" />
+    <path d="M150,380 Q400,200 650,380" stroke="#e74c3c" stroke-width="2" fill="none" />
+    <path d="M200,320 Q400,50 600,320" stroke="#2ecc71" stroke-width="2" fill="none" />
+    
+    <g id="dataPoints">
+      <circle cx="100" cy="350" r="5" fill="#3498db" />
+      <circle cx="200" cy="280" r="5" fill="#3498db" />
+      <circle cx="300" cy="220" r="5" fill="#3498db" />
+      <circle cx="400" cy="100" r="5" fill="#3498db" />
+      <circle cx="500" cy="220" r="5" fill="#3498db" />
+      <circle cx="600" cy="280" r="5" fill="#3498db" />
+      <circle cx="700" cy="350" r="5" fill="#3498db" />
+      
+      <circle cx="150" cy="380" r="5" fill="#e74c3c" />
+      <circle cx="250" cy="330" r="5" fill="#e74c3c" />
+      <circle cx="350" cy="270" r="5" fill="#e74c3c" />
+      <circle cx="400" cy="200" r="5" fill="#e74c3c" />
+      <circle cx="450" cy="270" r="5" fill="#e74c3c" />
+      <circle cx="550" cy="330" r="5" fill="#e74c3c" />
+      <circle cx="650" cy="380" r="5" fill="#e74c3c" />
+      
+      <circle cx="200" cy="320" r="5" fill="#2ecc71" />
+      <circle cx="300" cy="180" r="5" fill="#2ecc71" />
+      <circle cx="400" cy="50" r="5" fill="#2ecc71" />
+      <circle cx="500" cy="180" r="5" fill="#2ecc71" />
+      <circle cx="600" cy="320" r="5" fill="#2ecc71" />
+    </g>
+  </g>
+  
+  <!-- Data flow animation instances -->
+  <g id="flowParticles">
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow1" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow2" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow3" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow4" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow5" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow6" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow7" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow8" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow9" />
+    <use xlink:href="#dataFlow" x="0" y="0" class="flow flow10" />
+  </g>
+  
+  <!-- Animations -->
+  <style>
+    /* Window lights animation */
+    .windows rect {
+      animation: windowLight 5s infinite alternate;
+      animation-delay: calc(var(--window-index, 0) * 0.2s);
+    }
+    
+    .windows rect:nth-child(3n+1) {
+      --window-index: 1;
+    }
+    
+    .windows rect:nth-child(3n+2) {
+      --window-index: 2;
+    }
+    
+    .windows rect:nth-child(3n+3) {
+      --window-index: 3;
+    }
+    
+    @keyframes windowLight {
+      0%, 80% {
+        opacity: 0.8;
+      }
+      85%, 95% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0.8;
+      }
+    }
+    
+    /* Traffic light animation */
+    .light.red {
+      animation: redLight 10s infinite;
+    }
+    
+    .light.yellow {
+      animation: yellowLight 10s infinite;
+    }
+    
+    .light.green {
+      animation: greenLight 10s infinite;
+    }
+    
+    @keyframes redLight {
+      0%, 55% {
+        opacity: 0.3;
+      }
+      60%, 100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes yellowLight {
+      0%, 45% {
+        opacity: 0.3;
+      }
+      50%, 55% {
+        opacity: 1;
+      }
+      60%, 100% {
+        opacity: 0.3;
+      }
+    }
+    
+    @keyframes greenLight {
+      0%, 5% {
+        opacity: 0.3;
+      }
+      10%, 45% {
+        opacity: 1;
+      }
+      50%, 100% {
+        opacity: 0.3;
+      }
+    }
+    
+    /* Car animation */
+    .car {
+      animation: moveCar 15s infinite linear;
+    }
+    
+    .car1 {
+      animation-delay: 0s;
+    }
+    
+    .car2 {
+      animation-delay: -3s;
+    }
+    
+    .car3 {
+      animation-delay: -6s;
+    }
+    
+    .car4 {
+      animation-delay: -9s;
+    }
+    
+    .car5 {
+      animation-delay: -12s;
+    }
+    
+    @keyframes moveCar {
+      0% {
+        transform: translateX(-100px);
+      }
+      100% {
+        transform: translateX(900px);
+      }
+    }
+    
+    /* Data flow animation */
+    .flow {
+      animation: flowData 10s infinite linear;
+    }
+    
+    .flow1 {
+      animation-delay: 0s;
+    }
+    
+    .flow2 {
+      animation-delay: -1s;
+    }
+    
+    .flow3 {
+      animation-delay: -2s;
+    }
+    
+    .flow4 {
+      animation-delay: -3s;
+    }
+    
+    .flow5 {
+      animation-delay: -4s;
+    }
+    
+    .flow6 {
+      animation-delay: -5s;
+    }
+    
+    .flow7 {
+      animation-delay: -6s;
+    }
+    
+    .flow8 {
+      animation-delay: -7s;
+    }
+    
+    .flow9 {
+      animation-delay: -8s;
+    }
+    
+    .flow10 {
+      animation-delay: -9s;
+    }
+    
+    @keyframes flowData {
+      0% {
+        transform: translate(100px, 350px);
+      }
+      25% {
+        transform: translate(300px, 220px);
+      }
+      50% {
+        transform: translate(500px, 220px);
+      }
+      75% {
+        transform: translate(700px, 350px);
+      }
+      100% {
+        transform: translate(900px, 350px);
+      }
+    }
+  </style>
+</svg>

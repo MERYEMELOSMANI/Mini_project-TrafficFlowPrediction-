@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction de Flux de Trafic | Projet IA-RO</title>
+    <meta name="description" content="Projet d'analyse et de prédiction des flux de trafic routier utilisant l'intelligence artificielle et la recherche opérationnelle pour optimiser la mobilité urbaine.">
+    <meta name="keywords" content="prédiction trafic, flux routier, intelligence artificielle, recherche opérationnelle, mobilité urbaine, optimisation feux circulation">
+    <meta name="author" content="Meryem Elosmani">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://meryemelosmani.me/Mini_project-TrafficFlowPrediction-/">
+    <meta property="og:title" content="Prédiction de Flux de Trafic | Projet IA-RO">
+    <meta property="og:description" content="Projet d'analyse et de prédiction des flux de trafic routier utilisant l'intelligence artificielle et la recherche opérationnelle.">
+    <meta property="og:image" content="http://meryemelosmani.me/Mini_project-TrafficFlowPrediction-/traffic-city.svg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://meryemelosmani.me/Mini_project-TrafficFlowPrediction-/">
+    <meta property="twitter:title" content="Prédiction de Flux de Trafic | Projet IA-RO">
+    <meta property="twitter:description" content="Projet d'analyse et de prédiction des flux de trafic routier utilisant l'intelligence artificielle et la recherche opérationnelle.">
+    <meta property="twitter:image" content="http://meryemelosmani.me/Mini_project-TrafficFlowPrediction-/traffic-city.svg">
+    <link rel="canonical" href="http://meryemelosmani.me/Mini_project-TrafficFlowPrediction-/">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="traffic-light">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green active"></div>
+            </div>
+            <p>Chargement du projet...</p>
+        </div>
+    </div>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Prédiction de Flux de Trafic">Prédiction de Flux de Trafic</h1>
+            <p class="subtitle">Une approche combinant intelligence artificielle et recherche opérationnelle pour optimiser la mobilité urbaine</p>
+            <div class="cta-buttons">
+                <a href="#about" class="btn primary-btn">Découvrir le projet</a>
+                <a href="#methodology" class="btn secondary-btn">Voir la méthodologie</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="canvas-container"></div>
+    </header>
+
+    <nav id="main-nav">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-traffic-light"></i>
+                <span>TrafficFlow.AI</span>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#dataset">Données</a></li>
+                <li><a href="#methodology">Méthodologie</a></li>
+                <li><a href="#models">Modèles</a></li>
+                <li><a href="#optimization">Optimisation</a></li>
+                <li><a href="#team">Équipe</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>À propos du projet</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="highlight">Ce projet présente une étude complète sur la prédiction des flux de trafic routier et l'optimisation des feux de circulation dans un cadre urbain, en combinant des techniques d'apprentissage automatique et de recherche opérationnelle.</p>
+                        <p>Notre approche vise à développer des modèles prédictifs pour estimer le volume de trafic à partir de données multidimensionnelles et d'utiliser ces prédictions pour optimiser dynamiquement la durée des feux de circulation. Les objectifs principaux sont :</p>
+                        <ul class="feature-list">
+                            <li>
+                                <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                                <div class="feature-content">
+                                    <h3>Prédiction précise du trafic</h3>
+                                    <p>Développer des modèles d'apprentissage automatique performants pour estimer le volume de trafic</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fas fa-traffic-light"></i></div>
+                                <div class="feature-content">
+                                    <h3>Optimisation des feux</h3>
+                                    <p>Ajuster dynamiquement la durée des feux pour minimiser le temps d'attente des véhicules</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fas fa-leaf"></i></div>
+                                <div class="feature-content">
+                                    <h3>Réduction des émissions</h3>
+                                    <p>Diminuer l'impact environnemental lié aux émissions polluantes des véhicules en attente</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                                <div class="feature-content">
+                                    <h3>Amélioration de la sécurité</h3>
+                                    <p>Réduire les risques d'accidents en optimisant la gestion des flux de circulation</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-container">
+                            <img src="traffic-city.svg" alt="Trafic urbain" class="animated-image">
+                        </div>
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-value" data-count="4">0</div>
+                                <div class="stat-label">Modèles d'IA évalués</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" data-count="85">0</div>
+                                <div class="stat-label">% de précision</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" data-count="30">0</div>
+                                <div class="stat-label">% de réduction du temps d'attente</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dataset" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Jeu de données</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="dataset-content">
+                    <div class="dataset-info">
+                        <p>Notre analyse s'appuie sur un ensemble de données comprenant plusieurs variables qui influencent les conditions de trafic :</p>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>holiday</td>
+                                        <td>Indique si le jour est férié</td>
+                                    </tr>
+                                    <tr>
+                                        <td>temp</td>
+                                        <td>Température normalisée</td>
+                                    </tr>
+                                    <tr>
+                                        <td>rain_1h</td>
+                                        <td>Quantité de pluie (dernière heure)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>snow_1h</td>
+                                        <td>Quantité de neige (dernière heure)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>clouds_all</td>
+                                        <td>Couverture nuageuse</td>
+                                    </tr>
+                                    <tr>
+                                        <td>weather_main</td>
+                                        <td>Condition météorologique principale</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rush Hour</td>
+                                        <td>Indique si c'est une heure de pointe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>traffic_volume</td>
+                                        <td>Volume de trafic normalisé</td>
+                                    </tr>
+                                    <tr>
+                                        <td>class</td>
+                                        <td>Classification du trafic (Rouge, Jaune, Vert)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>accidents</td>
+                                        <td>Nombre d'accidents</td>
+                                    </tr>
+                                    <tr>
+                                        <td>economic_activity</td>
+                                        <td>Type d'activité économique (Marché, Concert, etc.)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>incidents</td>
+                                        <td>Nombre d'incidents signalés</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="dataset-visualization">
+                        <div class="chart-container">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                        <div class="chart-info">
+                            <h3>Distribution du volume de trafic</h3>
+                            <p>Ce graphique montre la distribution du volume de trafic selon différentes conditions météorologiques et périodes de la journée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Méthodologie</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="methodology-content">
+                    <div class="methodology-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Préparation des données</h3>
+                                <p>Nettoyage des données, traitement des valeurs manquantes et normalisation des variables numériques.</p>
+                                <div class="code-snippet">
+                                    <pre><code># Extrait du code Python utilisé pour l'analyse
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Chargement des données
+combined_data = pd.read_csv('dataset.csv')
+
+# Affichage des premières lignes pour vérifier les données
+print(combined_data.head())</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Analyse exploratoire</h3>
+                                <p>Visualisation des relations entre les variables et identification des tendances.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Sélection de modèle</h3>
+                                <p>Évaluation de différents algorithmes d'apprentissage automatique pour trouver le plus performant.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Entraînement du modèle</h3>
+                                <p>Entraînement du modèle sélectionné sur les données historiques.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Évaluation</h3>
+                                <p>Mesure de la performance du modèle à l'aide de métriques appropriées.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Résultats</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="results-content">
+                    <div class="result-item">
+                        <h3>Impact de la météo</h3>
+                        <p>Les conditions météorologiques, en particulier la pluie et la neige, ont un impact significatif sur le volume de trafic.</p>
+                        <div class="result-visual">
+                            <div class="weather-impact">
+                                <div class="weather-icon rain">
+                                    <i class="fas fa-cloud-rain"></i>
+                                </div>
+                                <div class="impact-bar">
+                                    <div class="impact-level" style="width: 75%;"></div>
+                                </div>
+                                <div class="impact-value">+75% de congestion</div>
+                            </div>
+                            <div class="weather-impact">
+                                <div class="weather-icon snow">
+                                    <i class="fas fa-snowflake"></i>
+                                </div>
+                                <div class="impact-bar">
+                                    <div class="impact-level" style="width: 90%;"></div>
+                                </div>
+                                <div class="impact-value">+90% de congestion</div>
+                            </div>
+                            <div class="weather-impact">
+                                <div class="weather-icon sun">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <div class="impact-bar">
+                                    <div class="impact-level" style="width: 30%;"></div>
+                                </div>
+                                <div class="impact-value">+30% de congestion</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <h3>Heures de pointe</h3>
+                        <p>Les périodes d'heures de pointe montrent une augmentation significative du volume de trafic, avec une classification "Rouge" plus fréquente.</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Activités économiques</h3>
+                        <p>Les événements comme les concerts et les marchés sont associés à des volumes de trafic plus élevés dans les zones environnantes.</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Performance du modèle</h3>
+                        <p>Notre modèle de prédiction a atteint une précision de classification élevée pour les différentes catégories de trafic.</p>
+                        <div class="model-performance">
+                            <div class="performance-metric">
+                                <div class="metric-name">Précision</div>
+                                <div class="metric-chart">
+                                    <div class="chart-fill" style="width: 85%;"></div>
+                                </div>
+                                <div class="metric-value">85%</div>
+                            </div>
+                            <div class="performance-metric">
+                                <div class="metric-name">Rappel</div>
+                                <div class="metric-chart">
+                                    <div class="chart-fill" style="width: 82%;"></div>
+                                </div>
+                                <div class="metric-value">82%</div>
+                            </div>
+                            <div class="performance-metric">
+                                <div class="metric-name">F1-Score</div>
+                                <div class="metric-chart">
+                                    <div class="chart-fill" style="width: 83%;"></div>
+                                </div>
+                                <div class="metric-value">83%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Conclusion</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="conclusion-content">
+                    <p>Ce projet démontre l'efficacité des techniques d'apprentissage automatique pour prédire les conditions de trafic routier. Les résultats obtenus peuvent être utilisés pour :</p>
+                    <ul class="conclusion-list">
+                        <li>
+                            <i class="fas fa-route"></i>
+                            <span>Optimiser les itinéraires en temps réel</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Planifier les déplacements aux heures les moins congestionnées</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-city"></i>
+                            <span>Améliorer la planification urbaine et la gestion du trafic</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-gas-pump"></i>
+                            <span>Réduire la consommation de carburant et les émissions</span>
+                        </li>
+                    </ul>
+                    <p>Les travaux futurs pourraient inclure l'intégration de données en temps réel et l'expansion du modèle à d'autres zones géographiques.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-traffic-light"></i>
+                    <span>TrafficFlow.AI</span>
+                </div>
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#dataset">Données</a></li>
+                        <li><a href="#methodology">Méthodologie</a></li>
+                        <li><a href="#results">Résultats</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@trafficflow.ai</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TrafficFlow.AI - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
