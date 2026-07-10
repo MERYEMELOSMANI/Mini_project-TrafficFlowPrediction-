@@ -1,6 +1,5 @@
 // Initialisation des variables globales
 let isScrolled = false;
-let animationsInitialized = false;
 
 // Attendre que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', function() {
@@ -29,15 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Gérer le menu de navigation
     initNavigation();
-    
-    // Gérer les onglets
-    initTabs();
-    
+
     // Gérer le bouton de retour en haut
     initBackToTop();
-    
-    // Gérer le formulaire de contact
-    initContactForm();
 });
 
 // Fonction pour initialiser les particules
@@ -203,7 +196,7 @@ function initThreeScene() {
 function initCharts() {
     if (typeof Chart !== 'undefined') {
         // Graphique de distribution des classes de trafic
-        const trafficClassCtx = document.getElementById('trafficClassChart').getContext('2d');
+        const trafficClassCtx = document.getElementById('trafficChart').getContext('2d');
         const trafficClassChart = new Chart(trafficClassCtx, {
             type: 'pie',
             data: {
@@ -228,180 +221,7 @@ function initCharts() {
                 }
             }
         });
-        
-        // Graphique de corrélation
-        const correlationCtx = document.getElementById('correlationChart').getContext('2d');
-        const correlationChart = new Chart(correlationCtx, {
-            type: 'radar',
-            data: {
-                labels: ['Température', 'Pluie', 'Neige', 'Nuages', 'Heure de pointe', 'Accidents'],
-                datasets: [{
-                    label: 'Corrélation avec le volume de trafic',
-                    data: [0.3, 0.7, 0.8, 0.2, 0.9, 0.6],
-                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                    borderColor: 'rgba(52, 152, 219, 1)',
-                    borderWidth: 2,
-                    pointBackgroundColor: 'rgba(52, 152, 219, 1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: {
-                            display: true
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 1
-                    }
-                }
-            }
-        });
-        
-        // Graphique de série temporelle
-        const timeSeriesCtx = document.getElementById('timeSeriesChart').getContext('2d');
-        const timeSeriesChart = new Chart(timeSeriesCtx, {
-            type: 'line',
-            data: {
-                labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
-                datasets: [{
-                    label: 'Volume de trafic',
-                    data: [65, 59, 80, 81, 90, 55, 40],
-                    fill: true,
-                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                    borderColor: 'rgba(52, 152, 219, 1)',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        
-        // Graphique de comparaison des modèles
-        const modelsComparisonCtx = document.getElementById('modelsComparisonChart').getContext('2d');
-        const modelsComparisonChart = new Chart(modelsComparisonCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Régression Multiple', 'Arbre de Décision', 'SVR', 'KNN'],
-                datasets: [
-                    {
-                        label: 'MSE (Erreur quadratique moyenne)',
-                        data: [0.072, 0.085, 0.068, 0.089],
-                        backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                        borderColor: 'rgba(231, 76, 60, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'R² (Coefficient de détermination)',
-                        data: [0.18, 0.15, 0.16, 0.14],
-                        backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                        borderColor: 'rgba(52, 152, 219, 1)',
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        
-        // Graphiques pour les modèles individuels
-        const modelCharts = ['regressionChart', 'decisionTreeChart', 'svrChart', 'knnChart'];
-        
-        modelCharts.forEach((chartId, index) => {
-            const ctx = document.getElementById(chartId).getContext('2d');
-            const chart = new Chart(ctx, {
-                type: 'scatter',
-                data: {
-                    datasets: [
-                        {
-                            label: 'Valeurs réelles',
-                            data: generateScatterData(50, index),
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1,
-                            pointRadius: 5
-                        },
-                        {
-                            label: 'Valeurs prédites',
-                            data: generateScatterData(50, index, true),
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1,
-                            pointRadius: 5
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            type: 'linear',
-                            position: 'bottom',
-                            title: {
-                                display: true,
-                                text: 'Échantillons'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Volume de trafic'
-                            }
-                        }
-                    }
-                }
-            });
-        });
     }
-}
-
-// Fonction pour générer des données de dispersion pour les graphiques
-function generateScatterData(count, seed, isPrediction = false) {
-    const data = [];
-    const random = mulberry32(seed);
-    
-    for (let i = 0; i < count; i++) {
-        const x = i;
-        let y = 0.5 + random() * 0.5;
-        
-        // Ajouter un peu de bruit pour les prédictions
-        if (isPrediction) {
-            y += (random() - 0.5) * 0.2;
-        }
-        
-        data.push({x, y});
-    }
-    
-    return data;
-}
-
-// Générateur de nombres pseudo-aléatoires avec graine
-function mulberry32(a) {
-    return function() {
-        let t = a += 0x6D2B79F5;
-        t = Math.imul(t ^ t >>> 15, t | 1);
-        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-        return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
 }
 
 // Fonction pour initialiser les animations GSAP
@@ -449,54 +269,6 @@ function initGSAPAnimations() {
                     delay: 0.3
                 });
             }
-        });
-        
-        // Animation spécifique pour la timeline de méthodologie
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
-        timelineItems.forEach((item, index) => {
-            gsap.from(item, {
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 80%'
-                },
-                x: index % 2 === 0 ? -50 : 50,
-                opacity: 0,
-                duration: 1,
-                delay: index * 0.2
-            });
-        });
-        
-        // Animation pour les cartes d'optimisation
-        const optimizationCards = document.querySelectorAll('.optimization-card');
-        
-        optimizationCards.forEach((card, index) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 80%'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                delay: index * 0.2
-            });
-        });
-        
-        // Animation pour les membres de l'équipe
-        const teamMembers = document.querySelectorAll('.team-member');
-        
-        teamMembers.forEach((member, index) => {
-            gsap.from(member, {
-                scrollTrigger: {
-                    trigger: member,
-                    start: 'top 80%'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                delay: index * 0.3
-            });
         });
     }
 }
@@ -611,45 +383,6 @@ function initNavigation() {
     });
 }
 
-// Fonction pour initialiser les onglets
-function initTabs() {
-    // Onglets du jeu de données
-    const datasetTabs = document.querySelectorAll('.chart-tabs .tab');
-    const datasetCharts = document.querySelectorAll('.chart-container');
-    
-    datasetTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const tabId = this.getAttribute('data-tab');
-            
-            // Supprimer la classe active de tous les onglets et contenus
-            datasetTabs.forEach(t => t.classList.remove('active'));
-            datasetCharts.forEach(c => c.classList.remove('active'));
-            
-            // Ajouter la classe active à l'onglet cliqué et au contenu correspondant
-            this.classList.add('active');
-            document.getElementById(`${tabId}-chart`).classList.add('active');
-        });
-    });
-    
-    // Onglets des modèles
-    const modelTabs = document.querySelectorAll('.models-tabs .tab');
-    const modelContainers = document.querySelectorAll('.model-container');
-    
-    modelTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const modelId = this.getAttribute('data-model');
-            
-            // Supprimer la classe active de tous les onglets et contenus
-            modelTabs.forEach(t => t.classList.remove('active'));
-            modelContainers.forEach(c => c.classList.remove('active'));
-            
-            // Ajouter la classe active à l'onglet cliqué et au contenu correspondant
-            this.classList.add('active');
-            document.getElementById(`${modelId}-model`).classList.add('active');
-        });
-    });
-}
-
 // Fonction pour initialiser le bouton de retour en haut
 function initBackToTop() {
     const backToTop = document.querySelector('.back-to-top');
@@ -668,37 +401,6 @@ function initBackToTop() {
             behavior: 'smooth'
         });
     });
-}
-
-// Fonction pour initialiser le formulaire de contact
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simuler l'envoi du formulaire
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Envoi en cours...';
-            
-            setTimeout(function() {
-                submitButton.textContent = 'Envoyé !';
-                
-                // Réinitialiser le formulaire
-                contactForm.reset();
-                
-                // Réinitialiser le bouton après 3 secondes
-                setTimeout(function() {
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalText;
-                }, 3000);
-            }, 2000);
-        });
-    }
 }
 
 // Ajouter des classes CSS pour les animations des barres du menu
