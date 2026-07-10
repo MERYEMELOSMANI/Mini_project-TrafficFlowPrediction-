@@ -40,7 +40,6 @@ Raw Data
 | `style.css` | Dashboard styles |
 | `scripts.js` | Dashboard interactivity |
 | `traffic-city.svg` | Visual asset |
-| `RAPPORT DE IA.docx` | Full project report |
 
 ---
 
